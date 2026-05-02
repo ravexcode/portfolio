@@ -1,0 +1,34 @@
+---
+import HeaderLink from "./buttons/header-link.astro"
+---
+
+<header
+class="h-max px-8 py-4 flex justify-between items-center bg-gray-900/30">
+  <h2
+  class="text-xl font-medium traking-widest">
+    RavexCode
+  </h2>
+
+  <ul
+  class="hidden md:flex gap-7 tracking-wide text-sm">
+    <HeaderLink
+    link="/">
+      Inicio
+    </HeaderLink>
+
+    <HeaderLink
+    link="#proyectos">
+      Proyectos
+    </HeaderLink>
+
+    <HeaderLink
+    link="#skills">
+      Skills
+    </HeaderLink>
+
+    <HeaderLink
+    link="#contacto">
+      Contacto
+    </HeaderLink>
+  </ul>
+</header>
