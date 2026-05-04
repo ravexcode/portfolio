@@ -33,7 +33,7 @@ classes="grid grid-rows-[auto_1fr_auto]">
         </a>
         <a
         href="#proyectos"
-        class="border-2 border-neutral-400 w-38 py-2 text-sm rounded-md duration-300 hover:brightness-80">
+        class="border-2 border-neutral-200 w-38 py-2 text-sm rounded-md duration-300 hover:bg-neutral-200 hover:text-black">
           Ver más
         </a>
       </div>
@@ -134,12 +134,12 @@ classes="grid grid-rows-[auto_1fr_auto]">
       </span>
 
       <article
-      class="flex gap-10 justify-center items-start flex-wrap">
+      class="grid grid-cols-3 md:grid-cols-6 lg:flex lg:flex-wrap items-start justify-center gap-5">
         {
           skills.map(skill =>
             (
               <div
-              class="flex flex-col gap-2 items-center justify-center text-center text-lg w-20">
+              class="flex flex-col gap-2 items-center justify-center text-center text-lg">
                 <img
                 src={skill.img}
                 alt={skill.name}
