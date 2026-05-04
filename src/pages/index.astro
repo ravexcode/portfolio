@@ -4,10 +4,17 @@ import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import { projects } from "../content/projects";
 import { skills } from '../content/skills';
+
+const pageTitle = 'RavexCode - Desarrollador Backend Especializado en REST APIs';
+const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por crear REST APIs robustas y escalables. Explora mis proyectos y habilidades en programación.';
 ---
 
 <Layout
-classes="grid grid-rows-[auto_1fr_auto]">
+	title={pageTitle}
+	description={pageDescription}
+	type="website"
+	classes="grid grid-rows-[auto_1fr_auto]"
+>
   <Header />
 
   <main>

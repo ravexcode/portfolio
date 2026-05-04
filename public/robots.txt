@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemaps
+Sitemap: https://ravexcode.dev/sitemap-index.xml
+
+# Crawl Delay
+Crawl-delay: 1

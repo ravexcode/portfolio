@@ -1,0 +1,71 @@
+---
+import { siteConfig } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  author?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = `${siteConfig.siteName} - ${siteConfig.description}`,
+  description = siteConfig.description,
+  image = siteConfig.ogImage,
+  url = siteConfig.siteURL,
+  author = siteConfig.author,
+  type = 'website'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="keywords" content={siteConfig.keywords.join(', ')} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={`${siteConfig.siteURL}${image}`} />
+<meta property="og:site_name" content={siteConfig.siteName} />
+<meta property="og:locale" content={siteConfig.language} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={`${siteConfig.siteURL}${image}`} />
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="language" content="Spanish" />
+<link rel="alternate" hreflang="es" href={canonicalURL} />
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{author}",
+  "jobTitle": "Desarrollador Backend",
+  "url": "{siteConfig.siteURL}",
+  "sameAs": [
+    "{siteConfig.socialLinks.github}",
+    "{siteConfig.socialLinks.linkedin}",
+    "{siteConfig.socialLinks.twitter}"
+  ],
+  "description": "{description}",
+  "email": "{siteConfig.socialLinks.email}",
+  "image": "{siteConfig.siteURL}{image}"
+}
+</script>

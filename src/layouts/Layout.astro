@@ -1,21 +1,43 @@
 ---
 import "../styles/global.css";
+import SEO from "../components/SEO.astro";
 
 export interface Props {
 	classes?: string;
+	title?: string;
+	description?: string;
+	image?: string;
+	type?: 'website' | 'article';
 }
 
-const { classes } = Astro.props;
+const { 
+	classes,
+	title,
+	description,
+	image,
+	type
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
 		<meta name="generator" content={Astro.generator} />
-		<title>Ravex code</title>
+		
+		<!-- SEO Component -->
+		<SEO 
+			title={title}
+			description={description}
+			image={image}
+			type={type}
+		/>
+
+		<!-- Performance & Preload -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	</head>
 	<body
 	class={"bg-[#101010] text-neutral-50 " + classes}>
