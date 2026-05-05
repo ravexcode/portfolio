@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 export async function GET() {
-  const baseUrl = 'https://ravexcode.dev';
+  const baseUrl = 'https://ravexcode.com';
 
   const pages = [
     {
