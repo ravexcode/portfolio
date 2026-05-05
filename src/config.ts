@@ -13,7 +13,7 @@ export const siteConfig = {
     github: 'https://github.com/ravexcode',
     linkedin: 'https://linkedin.com/in/ravexcode',
     twitter: 'https://twitter.com/ravexcode',
-    email: 'contact@ravexcode.dev'
+    email: 'contact@ravexcode.com'
   },
   
   // OG Image (Asegúrate de que existe en public/)

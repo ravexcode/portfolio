@@ -20,27 +20,27 @@ const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por 
   <main>
 
     <section
-    class="flex flex-col justify-center items-start py-10 px-6 md:px-18 md:py-16">
+    class="flex flex-col justify-center items-start py-10 px-6 md:px-16 md:py-16">
 
       <h1
-      class="text-5xl font-light traking-widest"> Hola, soy RavexCode <br>
+      class="text-3xl sm:text-4xl md:text-5xl font-light traking-widest"> Hola, soy RavexCode <br>
       un programador enfocado en <span class="text-blue-600 font-normal">backend</span> </h1>
 
       <p
-      class="font-light text-lg opacity-80 py-2 w-100">
+      class="font-light text-sm md:text-lg opacity-80 py-2 w-full">
         Conocimientos en servicios hechos para Rest APIs.
       </p>
 
       <div
-      class="flex w-80 justify-evenly items-center text-center">
+      class="flex max-w-xs justify-evenly items-center text-center text-sm">
         <a
         href="#contacto"
-        class="bg-blue-600 w-38 py-2 text-sm rounded-md duration-300 hover:brightness-80">
+        class="border border-blue-600 bg-blue-600 px-6 mr-3 py-2 rounded-md duration-300 hover:brightness-80">
           Contacto
         </a>
         <a
         href="#proyectos"
-        class="border-2 border-neutral-200 w-38 py-2 text-sm rounded-md duration-300 hover:bg-neutral-200 hover:text-black">
+        class="border-1 border-neutral-200 px-6 py-2 rounded-md duration-300 hover:bg-neutral-200 hover:text-black">
           Ver más
         </a>
       </div>
@@ -146,7 +146,7 @@ const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por 
           skills.map(skill =>
             (
               <div
-              class="flex flex-col gap-2 items-center justify-center text-center text-lg">
+              class="flex flex-col gap-2 items-center justify-center text-center text-lg cursor-default">
                 <img
                 src={skill.img}
                 alt={skill.name}
@@ -192,7 +192,7 @@ const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por 
       <form
       method="POST"
       action="https://formspree.io/f/xnjwnlkv"
-      class="px-8 w-100 max-w-full py-4 rounded-lg bg-gray-950 border-2 border-blue-900">
+      class="px-8 w-sm max-w-80 md:max-w-sm py-4 rounded-lg bg-gray-950 border-2 border-blue-900">
         <h2 class="text-lg tracking-wide text-center mb-5">
           Sube de nivel tus APIs
         </h2>
@@ -204,7 +204,7 @@ const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por 
         type="email"
         name="email"
         required
-        placeholder="me@email.com"
+        placeholder="contacto@dominio.com"
         class="w-full rounded-lg border-2 px-4 py-2 border-neutral-600 duration-300 focus:border-blue-600 outline-none mt-2 mb-4"/>
 
         <label class="text-sm font-light tracking-wide">
@@ -214,7 +214,7 @@ const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por 
         type="text"
         name="subject"
         required
-        placeholder="Create an API Rest for..."
+        placeholder="Busco una API Rest para..."
         class="w-full rounded-lg border-2 px-4 py-2 border-neutral-600 duration-300 focus:border-blue-600 outline-none mt-2 mb-4" />
 
         <label class="text-sm font-light tracking-wide">
