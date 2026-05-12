@@ -1,5 +1,3 @@
-// src/pages/api/contact.ts
-
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
@@ -32,6 +30,9 @@ export const POST: APIRoute = async ({ request }) => {
 
         <p>${message}</p>
       `,
+    })
+    .catch((e) => {
+      console.error(e);
     });
 
     return new Response(
@@ -42,11 +43,10 @@ export const POST: APIRoute = async ({ request }) => {
     );
 
   } catch (error) {
-    console.error(error);
-
     return new Response(
       JSON.stringify({
-        error: "Internal Server Error",
+        message: "Internal Server Error",
+        error
       }),
       { status: 500 }
     );

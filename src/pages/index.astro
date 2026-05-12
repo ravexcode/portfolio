@@ -312,6 +312,10 @@ const pageDescription = 'Soy RavexCode, un desarrollador backend apasionado por 
         body: JSON.stringify(body),
       });
 
+      const data = await res.json();
+
+      console.log(data);
+
       if (res.ok) {
         formData.delete("subject");
         formData.delete("email");
