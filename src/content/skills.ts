@@ -44,6 +44,11 @@ export const skills = [
     isFramework: true
   },
   {
+    name: "Flutter",
+    img: "https://img.icons8.com/color/512/flutter.png",
+    isFramework: true
+  },
+  {
     name: "GitHub",
     img: "https://github.githubassets.com/favicons/favicon-dark.svg",
     isApplication: true

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SEO from "../components/SEO.astro";
+import GlobalTranslations from "../components/GlobalTranslations.astro";
 
 export interface Props {
 	classes?: string;
@@ -20,7 +21,8 @@ const {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es"
+class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,6 +43,7 @@ const {
 	</head>
 	<body
 	class={"bg-[#101010] text-neutral-50 " + classes}>
+		<GlobalTranslations />
 		<slot />
 	</body>
 </html>

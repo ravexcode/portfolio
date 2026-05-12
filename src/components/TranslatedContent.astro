@@ -1,0 +1,50 @@
+---
+interface Props {
+  translationKey: string;
+  fallback?: string;
+}
+
+const { translationKey, fallback = translationKey } = Astro.props;
+---
+
+<span class="translated-content" data-i18n={translationKey}>
+  {fallback}
+</span>
+
+<script>
+  function updateTranslatedContent(language: string) {
+    const translations: Record<string, Record<string, string>> = {
+      es: {
+        'nav.inicio': 'Inicio',
+        'nav.proyectos': 'Proyectos',
+        'nav.skills': 'Skills',
+        'nav.contacto': 'Contacto',
+        'hero.title': 'Desarrollador Backend',
+        'hero.subtitle': 'Especializado en REST APIs y Node.js',
+      },
+      en: {
+        'nav.inicio': 'Home',
+        'nav.proyectos': 'Projects',
+        'nav.skills': 'Skills',
+        'nav.contacto': 'Contact',
+        'hero.title': 'Backend Developer',
+        'hero.subtitle': 'Specialized in REST APIs and Node.js',
+      },
+    };
+
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (key && translations[language] && translations[language][key]) {
+        element.textContent = translations[language][key];
+      }
+    });
+  }
+
+  window.addEventListener('languageChange', (e: any) => {
+    updateTranslatedContent(e.detail.language);
+  });
+
+  const current = localStorage.getItem('language') || 'es';
+  updateTranslatedContent(current);
+</script>

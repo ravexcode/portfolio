@@ -1,16 +1,21 @@
 ---
 import HeaderLink from "./buttons/header-link.astro"
+import LanguageSwitcher from "./LanguageSwitcher.astro"
 ---
 
 <header
-class="h-max px-8 py-4 flex justify-between items-center bg-neutral-900/30">
+class="h-max px-8 py-4 flex justify-center items-center bg-[#111111] border-b border-neutral-800 sticky top-0 z-20">
   <h2
   class="text-xl font-medium traking-widest">
     RavexCode
   </h2>
 
+  <div class="ml-auto">
+    <LanguageSwitcher />
+  </div>
+
   <ul
-  class="hidden md:flex gap-7 tracking-wide text-sm">
+  class="hidden sm:flex gap-7 tracking-wide text-sm ml-5">
     <HeaderLink
     link="/">
       Inicio
@@ -31,4 +36,5 @@ class="h-max px-8 py-4 flex justify-between items-center bg-neutral-900/30">
       Contacto
     </HeaderLink>
   </ul>
+
 </header>

@@ -1,0 +1,100 @@
+<div class="flex items-center gap-2">
+  <button
+    class="language-switcher px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-neutral-800 bg-neutral-800/50"
+    id="lang-switcher"
+    aria-label="Toggle language"
+  >
+    <span id="lang-flag">🇪🇸</span>
+    <span id="lang-code" class="ml-1">ES</span>
+  </button>
+</div>
+
+<script>
+  interface LanguageOption {
+    code: string;
+    flag: string;
+    label: string;
+    htmlLang: string;
+  }
+
+  const languages: Record<string, LanguageOption> = {
+    es: {
+      code: 'ES',
+      flag: '🇪🇲🇽🇲🇽',
+      label: 'Español',
+      htmlLang: 'es',
+    },
+    en: {
+      code: 'EN',
+      flag: '🇬🇺🇸',
+      label: 'English',
+      htmlLang: 'en',
+    },
+  };
+
+  function getCurrentLanguage(): string {
+    const saved = localStorage.getItem('language');
+    if (saved && saved in languages) return saved;
+
+    const browserLang = navigator.language.split('-')[0];
+    return browserLang === 'es' ? 'es' : 'en';
+  }
+
+  function switchLanguage() {
+    const current = getCurrentLanguage();
+    const next = current === 'es' ? 'en' : 'es';
+
+    localStorage.setItem('language', next);
+    updateLanguage(next);
+  }
+
+  function updateLanguage(lang: string) {
+    const langData = languages[lang];
+
+    document.documentElement.lang = langData.htmlLang;
+
+    const switcher = document.getElementById('lang-switcher');
+    const flag = document.getElementById('lang-flag');
+    const code = document.getElementById('lang-code');
+
+    if (flag && code) {
+      flag.textContent = langData.flag;
+      code.textContent = langData.code;
+    }
+
+    window.dispatchEvent(
+      new CustomEvent('languageChange', { detail: { language: lang } })
+    );
+
+    document.documentElement.dataset.language = lang;
+  }
+
+  function init() {
+    const current = getCurrentLanguage();
+    updateLanguage(current);
+
+    const switcher = document.getElementById('lang-switcher');
+    if (switcher) {
+      switcher.addEventListener('click', switchLanguage);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style>
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .language-switcher:hover {
+    background-color: rgb(38 38 38 / 0.8);
+  }
+</style>

@@ -1,0 +1,112 @@
+export const translations = {
+  es: {
+    nav: {
+      inicio: 'Inicio',
+      proyectos: 'Proyectos',
+      skills: 'Skills',
+      contacto: 'Contacto',
+    },
+    hero: {
+      greeting: 'Hola, soy RavexCode',
+      subtitle: 'un programador enfocado en',
+      specialization: 'backend',
+      description: 'Conocimientos en servicios hechos para Rest APIs.',
+      contactBtn: 'Contacto',
+      moreBtn: 'Ver más',
+    },
+    about: {
+      title: 'Sobre mí',
+      knowledge: {
+        title: 'Conocimientos',
+        description: 'Conozco varias tecnologías, pero solo he integrado a la sección skills mis habilidades mejor dominadas. Mi curva de aprendizaje suele estar dentro del promedio, a menos que conozca una tecnología previa que esté relacionada directamente.',
+      },
+      focus: {
+        title: 'Focos',
+        description: 'Suelo estar enfocado en Backend, APIs y Bases de datos. Pero también he manejado frontend, ya sea HTML puro, React o hasta SSR. Suelo ser versatil con mis campos de trabajo, y me puedo adaptar con la debida guía y rutas de aprendizaje',
+      },
+      teamwork: {
+        title: 'Trabajo en equipo',
+        description: 'Suelo trabajar bien solo, pero el trabajar en equipo es en lo que suelo trabajar mejor. Debido a que me guío mucho con las instrucciones brindadas dentro del sprint.',
+      },
+    },
+    projects: {
+      title: 'Proyectos',
+      viewProject: 'Ver proyecto',
+      privateRepo: 'Repositorio privado',
+      notDeployed: 'No desplegado',
+      github: 'Github',
+    },
+    skills: {
+      title: 'Skills',
+    },
+    contact: {
+      title: 'Mi contacto',
+      subtitle: 'Sube de nivel tus APIs',
+      emailLabel: 'Ingresa tu correo de contacto',
+      emailPlaceholder: 'contacto@dominio.com',
+      subjectLabel: '¿En qué estará enfocado tu proyecto?',
+      subjectPlaceholder: 'Busco una API Rest para...',
+      messageLabel: 'Describe tu proyecto',
+      messagePlaceholder: 'Una API CRUD para mi proyecto freelance...',
+      submitButton: 'Contactarme',
+    },
+    language: 'Idioma',
+    spanish: 'Español',
+    english: 'English',
+  },
+  en: {
+    nav: {
+      inicio: 'Home',
+      proyectos: 'Projects',
+      skills: 'Skills',
+      contacto: 'Contact',
+    },
+    hero: {
+      greeting: 'Hello, I\'m RavexCode',
+      subtitle: 'a programmer focused on',
+      specialization: 'backend',
+      description: 'Expertise in services built for Rest APIs.',
+      contactBtn: 'Contact',
+      moreBtn: 'Learn more',
+    },
+    about: {
+      title: 'About me',
+      knowledge: {
+        title: 'Knowledge',
+        description: 'I know several technologies, but I\'ve only integrated the ones I best master in the skills section. My learning curve is usually average, unless I know a prior technology that is directly related.',
+      },
+      focus: {
+        title: 'Focus',
+        description: 'I\'m usually focused on Backend, APIs and Databases. But I\'ve also worked with frontend, whether pure HTML, React or even SSR. I\'m usually versatile with my work fields, and I can adapt with proper guidance and learning paths',
+      },
+      teamwork: {
+        title: 'Teamwork',
+        description: 'I usually work well alone, but working in a team is where I work best. Because I guide myself a lot with the instructions provided within the sprint.',
+      },
+    },
+    projects: {
+      title: 'Projects',
+      viewProject: 'View project',
+      privateRepo: 'Private repository',
+      notDeployed: 'Not deployed',
+      github: 'Github',
+    },
+    skills: {
+      title: 'Skills',
+    },
+    contact: {
+      title: 'My contact',
+      subtitle: 'Level up your APIs',
+      emailLabel: 'Enter your contact email',
+      emailPlaceholder: 'contact@domain.com',
+      subjectLabel: 'What will your project be focused on?',
+      subjectPlaceholder: 'I\'m looking for a Rest API for...',
+      messageLabel: 'Describe your project',
+      messagePlaceholder: 'A CRUD API for my freelance project...',
+      submitButton: 'Contact me',
+    },
+    language: 'Language',
+    spanish: 'Spanish',
+    english: 'English',
+  },
+};
