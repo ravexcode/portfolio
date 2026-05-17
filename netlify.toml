@@ -1,0 +1,49 @@
+# Netlify Configuration for Astro
+
+[build]
+  # Directory to change to before starting a build
+  base = ""
+  
+  # Directory that will be deployed (relative to base)
+  publish = "dist"
+  
+  # Netlify runs `npm run build` by default
+  command = "npm run build"
+  
+  # Functions directory
+  functions = "netlify/functions"
+
+# Redirect all requests to index.html for SPA functionality
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache control headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Environment variables (configure these in Netlify UI or here)
+# [context.production.environment]
+#   NODE_VERSION = "22.12.0"
+
+[context.production]
+  command = "npm run build"
+
+[context.develop]
+  command = "npm run dev"
+
+[context.deploy-preview]
+  command = "npm run build"
