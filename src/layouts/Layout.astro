@@ -1,0 +1,101 @@
+---
+import "../styles/global.css";
+import Seo from "../components/Seo.astro";
+
+const link_class = "hover:underline hover:text-blue-400 duration-200";
+
+const header_class = "font-bold md:w-full md:text-start";
+const item_class = "hover:text-sky-500 hover:underline duration-200 cursor-pointer md:w-full md:text-start";
+const { title, description, canonical, image, type } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<Seo
+			title={title}
+			description={description}
+			canonical={canonical}
+			image={image}
+			type={type}
+		/>
+	</head>
+	<body
+	class="bg-neutral-950 text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans">
+		<header
+		class="w-full flex items-center justify-between p-5 border-b border-neutral-800 animate-fade-in-down">
+			<img
+			src="/large.svg"
+			alt="RavexCode presentation"
+			class="h-6">
+
+			<div
+			class="hidden md:flex items-center justify-center gap-7 text-sm">
+				<a
+				href="/#about"
+				class={link_class}>
+					About
+				</a>
+				<a
+				href="/#projects"
+				class={link_class}>
+					Projects
+				</a>
+				<a
+				href="/#skills"
+				class={link_class}>
+					Skills
+				</a>
+				<a
+				href="/#hire"
+				class={link_class}>
+					Hire me
+				</a>
+			</div>
+		</header>
+
+
+		<slot />
+
+		<footer
+		class="mt-10 bg-black p-10 flex flex-col items-start justify-between md:flex-row cursor-default select-none text-sm">
+			<img
+			src="/large.svg" 
+			alt="Ravexcode large logo"
+			class="h-7" >
+
+
+			<div
+			class="flex gap-6 items-start justify-center">
+
+				<div
+				class="flex flex-col items-center justify-center tracking-wide">
+					<p
+					class={header_class}>
+						Social media
+					</p>
+
+					<a href="" class={item_class}> X (Twitter)</a>
+					<a href="" class={item_class}> Linked in </a>
+					<a href="https://github.com/ravexcode" class={item_class}> Github</a>
+				</div>
+
+				<div
+				class="flex flex-col items-center justify-center tracking-wide">
+					<p
+					class={header_class}>
+						Deployed projects
+					</p>
+
+					<a href="https://credifox-store.vercel.app/" class={item_class}> Credifox</a>
+				</div>
+
+			</div>
+		</footer>
+	</body>
+</html>

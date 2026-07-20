@@ -1,0 +1,47 @@
+---
+const {
+  title = "RavexCode | Full-Stack Developer",
+  description = "RavexCode builds modern full-stack web applications, APIs, and scalable digital products.",
+  canonical,
+  image = "/large.svg",
+  type = "website",
+} = Astro.props;
+
+const siteUrl = "https://ravexcode.com";
+const resolvedCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const resolvedImage = new URL(image, siteUrl).toString();
+const resolvedTitle = title.includes("RavexCode") ? title : `${title} | RavexCode`;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "RavexCode",
+  url: siteUrl,
+  jobTitle: "Full-Stack Developer",
+  sameAs: [
+    "https://github.com/ravexcode",
+    "https://www.linkedin.com/",
+  ],
+  description,
+};
+---
+
+<title>{resolvedTitle}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#020617" />
+<meta name="author" content="RavexCode" />
+<link rel="canonical" href={resolvedCanonical} />
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content="RavexCode" />
+<meta property="og:title" content={resolvedTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={resolvedCanonical} />
+<meta property="og:image" content={resolvedImage} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={resolvedTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedImage} />
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

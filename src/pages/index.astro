@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/ui/card.astro';
+import Project from '../components/ui/project.astro';
+
+import { projects } from '../content/projects';
+import { skills } from '../content/skills';
+---
+
+<Layout
+	title="RavexCode | Full-Stack Developer"
+	description="RavexCode builds modern full-stack web applications, APIs, and scalable digital products for ambitious brands and startups."
+	canonical="https://ravexcode.com/"
+>
+	<div
+	class="w-full flex flex-col items-center justify-start">
+		<section
+		class="w-full flex flex-col p-10 mt-10 mb-20 animate-fade-in-up animate-duration-300">
+			<p
+			class="text-5xl font-medium tracking-wide animate-blurred-fade-in select-none animate-duration-500">
+				Hi, i'm <span class="text-sky-600">RavexCode</span> <br>
+				a <span class="text-sky-600">FullStack Web</span> developer
+			</p>
+			<h1
+			class="animate-blurred-fade-in mt-2 text-lg font-extralight animate-duration-500">
+				Knowledge in Rest APIs, React and more
+			</h1>
+		</section>
+		
+		<p
+		class="text-5xl font-medium animate-fade-in-up animate-delay-200 animate-duration-700"
+		id="about">
+			About me
+		</p>
+
+		<section
+		class="flex flex-col lg:flex-row gap-6 justify-center items-start mt-10 mb-30 px-5">
+			<Card
+			title='Knowledge'
+			content="I know several technologies, but I've only integrated the ones I best master in the skills section. My learning curve is usually average, unless I know a prior technology that is directly related." />
+			<Card
+			title='Focus'
+			content="I'm usually focused on Backend, APIs and Databases. But I've also worked with frontend, whether pure HTML, React or even SSR. I'm usually versatile with my work fields, and I can adapt with proper guidance and learning paths." />
+			<Card
+			title='Teamwork'
+			content="I usually work well alone, but working in a team is where I work best. Because I guide myself a lot with the instructions provided within the sprint." />
+		</section>
+
+		<p
+		class="text-5xl font-medium animate-fade-in-up animate-delay-200 animate-duration-700"
+		id="projects">
+			Projects
+		</p>
+
+		<div
+		class="mt-15 flex flex-col gap-10 px-5">
+			{
+				projects.map(pj =>
+					<Project
+					name={pj.name}
+					description={pj.description}
+					logo_url={pj.logo_url}
+					repo={pj.repo}
+					deploy={pj.deploy}
+					langs={pj.langs}
+					frameworks={pj.frameworks}
+					apps={pj.apps}
+					/>
+				)
+			}
+		</div>
+
+		<p
+		class="text-5xl font-medium animate-fade-in-up animate-delay-200 animate-duration-700 mt-30"
+		id="skills">
+			Skills
+		</p>
+
+		<div
+		class="flex flex-wrap gap-10 px-10 justify-center items-start mx-auto my-20">
+			{
+				skills.map(skill =>
+					<div
+					class="w-25 h-30 flex flex-col items-center justify-start gap-2 font-medium">
+						<img
+						src={skill.img}
+						alt="App logo"
+						class="w-10 aspect-square block" />
+
+						{ skill.name }
+						
+						{
+							skill.isApplication ?
+								<span
+								class="bg-violet-900 border border-violet-600 rounded-full text-center p-1 text-xs w-15">
+									App
+								</span>
+								:
+								skill.isFramework && 
+								<span
+								class="bg-blue-900 border border-blue-600 rounded-full text-center p-1 text-xs w-25">
+									Framework
+								</span>
+						}
+					</div>
+				)
+			}
+		</div>
+	</div>
+</Layout>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  content: string;
+  variant: "lang" | "framework" | "app";
+}
+
+const {
+  content = "",
+  variant = "lang"
+} = Astro.props;
+
+let tagClass: string = "";
+
+switch(variant) {
+  case "lang":
+    tagClass = "border-neutral-600 bg-neutral-700/40";
+    break;
+
+  case "framework":
+    tagClass = "border-blue-600 bg-blue-800/40";
+    break;
+
+  case "app":
+    tagClass = "border-violet-600 bg-violet-700/40";
+    break;
+}
+---
+
+<p
+class={"px-5 p-1.5 rounded-full border " + tagClass}>
+  { content }
+</p>
