@@ -24,7 +24,8 @@ export const projects = [
     langs: [ "TypeScript", "SQL" ],
     frameworks: [ "NextJS" ],
     apps: [ "Supabase", "Vercel", "Stripe" ],
-    repo: "https://github.com/ravexcode/programmate"
+    repo: "https://github.com/ravexcode/programmate",
+    deploy: "https://nex0.ravexcode.com/"
   },
   {
     logo_url: "https://raw.githubusercontent.com/ravexcode/credifox-store/refs/heads/master/public/logo.svg",
@@ -36,5 +37,5 @@ export const projects = [
     repo: "https://github.com/ravexcode/credifox-store",
     deploy: "https://credifox-store.vercel.app/"
   }
-  
+
 ]
