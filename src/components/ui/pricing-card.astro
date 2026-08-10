@@ -1,0 +1,101 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  pricePrefix: string;
+  price: string;
+  priceUnit: string;
+  priceAccent?: boolean;
+  features: string[];
+  footerNotes: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  badge?: string;
+  highlight?: boolean;
+  animateDelay?: string;
+}
+
+const {
+  name = "",
+  description = "",
+  pricePrefix = "",
+  price = "",
+  priceUnit = "",
+  priceAccent = false,
+  features = [],
+  footerNotes = [],
+  ctaLabel = "",
+  ctaHref = "",
+  badge = "",
+  highlight = false,
+  animateDelay = "",
+} = Astro.props;
+
+const cardClass = highlight
+  ? "border-2 border-blue-600"
+  : "border border-neutral-800";
+const nameClass = highlight ? "text-sky-500" : "text-neutral-500";
+const priceClass = priceAccent ? "text-sky-600" : "text-zinc-50";
+const ctaClass =
+  "mt-8 block w-full text-center p-3 px-6 rounded-md bg-blue-700 text-zinc-50 font-medium hover:scale-105 hover:bg-blue-600 duration-300";
+---
+
+<div
+  class={`flex flex-col relative rounded-sm bg-neutral-900 p-6 sm:p-7 animate-fade-in-up animate-duration-400 ${animateDelay} ${cardClass}`}
+>
+  {
+    badge.length > 0 && (
+      <span class="absolute -top-3 left-6 bg-blue-600 text-zinc-50 text-xs font-medium tracking-wide px-3 py-1 rounded-sm">
+        {badge}
+      </span>
+    )
+  }
+
+  <p class={`text-xs font-bold tracking-widest uppercase ${nameClass}`}>
+    {name}
+  </p>
+
+  <p class="mt-2 text-sm text-neutral-400 font-light">
+    {description}
+  </p>
+
+  <p class="mt-6 text-xs text-neutral-500 font-light">
+    {pricePrefix}
+  </p>
+
+  <p class={`text-3xl font-medium ${priceClass}`}>
+    {price}
+    {
+      priceUnit.length > 0 && (
+        <span class="text-base font-light text-neutral-500"> {priceUnit}</span>
+      )
+    }
+  </p>
+
+  <ul class="mt-6 flex flex-col gap-2 text-sm text-neutral-400 font-light">
+    {
+      features.map((feature) => (
+        <li class="flex items-start gap-2">
+          <span aria-hidden="true" class="text-sky-500 font-bold">
+            ✓
+          </span>
+          <span>{feature}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    footerNotes.length > 0 && (
+      <div class="mt-6 border-t border-neutral-800 pt-4 text-xs text-neutral-500 font-light flex flex-col gap-2">
+        {footerNotes.map((note) => (
+          <p>{note}</p>
+        ))}
+      </div>
+    )
+  }
+
+  <a href={ctaHref} class={ctaClass}>
+    {ctaLabel}
+  </a>
+</div>

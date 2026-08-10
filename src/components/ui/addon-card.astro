@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  desc: string;
+}
+
+const { name = "", price = "", desc = "" } = Astro.props;
+---
+
+<div
+  class="rounded-sm bg-neutral-900/50 border border-neutral-800/60 p-5 flex flex-col gap-2"
+>
+  <p class="text-sm font-medium text-zinc-50">
+    {name}
+  </p>
+  <p class="text-lg font-medium text-sky-500">
+    {price}
+  </p>
+  <p class="text-xs text-neutral-500 font-light">
+    {desc}
+  </p>
+</div>

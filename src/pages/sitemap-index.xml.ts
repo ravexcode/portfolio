@@ -5,7 +5,7 @@ export const prerender = true;
 const siteUrl = 'https://ravexcode.com';
 
 export const GET: APIRoute = async () => {
-  const pages = [''];
+  const pages = ['', '/pricing'];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${pages

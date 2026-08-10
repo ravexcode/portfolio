@@ -5,157 +5,149 @@ import Seo from "../components/Seo.astro";
 const link_class = "hover:underline hover:text-blue-400 duration-200";
 
 const header_class = "font-bold md:w-full md:text-start";
-const item_class = "hover:text-sky-500 hover:underline duration-200 cursor-pointer md:w-full md:text-start";
-const { title, description, canonical, image, type } = Astro.props;
+const item_class =
+  "hover:text-sky-500 hover:underline duration-200 cursor-pointer md:w-full md:text-start";
+const { title, description, canonical, image, type, lang = "en" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<Seo
-			title={title}
-			description={description}
-			canonical={canonical}
-			image={image}
-			type={type}
-		/>
-	</head>
-	<body
-	class="bg-neutral-950 text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans">
-		<header
-		class="w-full flex items-center justify-between p-5 border-b border-neutral-800 animate-fade-in-down">
-			<img
-			src="/large.svg"
-			alt="RavexCode presentation"
-			class="h-6">
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo
+      title={title}
+      description={description}
+      canonical={canonical}
+      image={image}
+      type={type}
+    />
+  </head>
+  <body
+    class="bg-neutral-950 text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans"
+  >
+    <header
+      class="w-full flex items-center justify-between p-5 border-b border-neutral-800 animate-fade-in-down"
+    >
+      <img src="/large.svg" alt="RavexCode presentation" class="h-6" />
 
-			<nav
-			class="hidden md:flex items-center justify-center gap-7 text-sm">
-				<a
-				href="/#about"
-				class={link_class}>
-					About
-				</a>
-				<a
-				href="/#projects"
-				class={link_class}>
-					Projects
-				</a>
-				<a
-				href="/#skills"
-				class={link_class}>
-					Skills
-				</a>
-				<a
-				href="/#hire"
-				class={link_class}>
-					Hire me
-				</a>
-			</nav>
+      <nav class="hidden md:flex items-center justify-center gap-7 text-sm">
+        <a href="/#about" class={link_class}> About </a>
+        <a href="/#projects" class={link_class}> Projects </a>
+        <a href="/#skills" class={link_class}> Skills </a>
+        <a href="/#hire" class={link_class}> Hire me </a>
+        <a
+          href="/pricing"
+          class="px-5 rounded-md py-1.5 text-center bg-blue-700 hover:bg-blue-800 duration-200 cursor-pointer"
+        >
+          Pricing
+        </a>
+      </nav>
 
-			<button
-			id="menu-btn"
-			type="button"
-			class="md:hidden flex flex-col gap-1.5 p-2"
-			aria-label="Toggle menu"
-			aria-expanded="false">
-				<span class="block w-6 h-0.5 bg-zinc-50"></span>
-				<span class="block w-6 h-0.5 bg-zinc-50"></span>
-				<span class="block w-6 h-0.5 bg-zinc-50"></span>
-			</button>
-		</header>
+      <button
+        id="menu-btn"
+        type="button"
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span class="block w-6 h-0.5 bg-zinc-50"></span>
+        <span class="block w-6 h-0.5 bg-zinc-50"></span>
+        <span class="block w-6 h-0.5 bg-zinc-50"></span>
+      </button>
+    </header>
 
-		<nav
-		id="mobile-menu"
-		class="hidden md:hidden flex-col items-stretch gap-1 px-5 pb-5 text-sm bg-neutral-950">
-			<a href="/#about" class={item_class}>About</a>
-			<a href="/#projects" class={item_class}>Projects</a>
-			<a href="/#skills" class={item_class}>Skills</a>
-			<a href="/#hire" class={item_class}>Hire me</a>
-		</nav>
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden flex-col items-stretch gap-1 px-5 pb-5 text-sm bg-neutral-950"
+    >
+      <a href="/#about" class={item_class}>About</a>
+      <a href="/#projects" class={item_class}>Projects</a>
+      <a href="/#skills" class={item_class}>Skills</a>
+      <a href="/#hire" class={item_class}>Hire me</a>
+      <a href="/pricing" class={item_class}>Pricing</a>
+    </nav>
 
+    <slot />
 
-		<slot />
+    <footer
+      class="mt-10 bg-black p-5 sm:p-10 flex flex-col items-start justify-between md:flex-row cursor-default select-none text-sm gap-6"
+    >
+      <img src="/large.svg" alt="Ravexcode large logo" class="h-7" />
 
-		<footer
-		class="mt-10 bg-black p-5 sm:p-10 flex flex-col items-start justify-between md:flex-row cursor-default select-none text-sm gap-6">
-			<img
-			src="/large.svg" 
-			alt="Ravexcode large logo"
-			class="h-7" >
+      <div class="flex gap-6 items-start justify-center">
+        <div class="flex flex-col items-center justify-center tracking-wide">
+          <p class={header_class}>Social media</p>
 
+          <a href="https://x.com/rafamartz2007" class={item_class}>
+            X (Twitter)</a
+          >
+          <a
+            href="https://www.linkedin.com/in/jose-mart%C3%ADnez-b6883b407/"
+            class={item_class}
+          >
+            Linked in
+          </a>
+          <a href="https://github.com/ravexcode" class={item_class}> Github</a>
+        </div>
 
-			<div
-			class="flex gap-6 items-start justify-center">
+        <div class="flex flex-col items-center justify-center tracking-wide">
+          <p class={header_class}>Deployed projects</p>
 
-				<div
-				class="flex flex-col items-center justify-center tracking-wide">
-					<p
-					class={header_class}>
-						Social media
-					</p>
+          <a href="https://credifox-store.vercel.app/" class={item_class}>
+            Credifox</a
+          >
+        </div>
 
-					<a href="https://x.com/rafamartz2007" class={item_class}> X (Twitter)</a>
-					<a href="https://www.linkedin.com/in/jose-mart%C3%ADnez-b6883b407/" class={item_class}> Linked in </a>
-					<a href="https://github.com/ravexcode" class={item_class}> Github</a>
-				</div>
+        <div class="flex flex-col items-center justify-center tracking-wide">
+          <p class={header_class}>Site</p>
 
-				<div
-				class="flex flex-col items-center justify-center tracking-wide">
-					<p
-					class={header_class}>
-						Deployed projects
-					</p>
-
-					<a href="https://credifox-store.vercel.app/" class={item_class}> Credifox</a>
-				</div>
-
-			</div>
-		</footer>
-	</body>
+          <a href="/pricing" class={item_class}> Pricing</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <script>
-	import Lenis from "lenis";
+  import Lenis from "lenis";
 
-	const menuBtn = document.getElementById("menu-btn");
-	const mobileMenu = document.getElementById("mobile-menu");
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-	if (menuBtn && mobileMenu) {
-		menuBtn.addEventListener("click", () => {
-			const open = mobileMenu.classList.toggle("flex");
-			mobileMenu.classList.toggle("hidden");
-			menuBtn.setAttribute("aria-expanded", String(open));
-		});
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("flex");
+      mobileMenu.classList.toggle("hidden");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
 
-		mobileMenu.querySelectorAll("a").forEach((link) => {
-			link.addEventListener("click", () => {
-				mobileMenu.classList.remove("flex");
-				mobileMenu.classList.add("hidden");
-				menuBtn.setAttribute("aria-expanded", "false");
-			});
-		});
-	}
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("flex");
+        mobileMenu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
 
-	const lenis = new Lenis({
-		autoRaf: true,
-		anchors: true,
-	});
+  const lenis = new Lenis({
+    autoRaf: true,
+    anchors: true,
+  });
 
-	document.querySelectorAll('a[href^="/#"]').forEach((link) => {
-		link.addEventListener("click", (event) => {
-			const id = link.getAttribute("href")?.split("#")[1];
-			if (!id) return;
-			const target = document.getElementById(id);
-			if (!target) return;
-			event.preventDefault();
-			lenis.scrollTo(target, { duration: 1.2 });
-			history.pushState(null, "", `#${id}`);
-		});
-	});
+  document.querySelectorAll('a[href^="/#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const id = link.getAttribute("href")?.split("#")[1];
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      event.preventDefault();
+      lenis.scrollTo(target, { duration: 1.2 });
+      history.pushState(null, "", `#${id}`);
+    });
+  });
 </script>

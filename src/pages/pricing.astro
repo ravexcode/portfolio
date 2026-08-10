@@ -1,0 +1,253 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PricingCard from "../components/ui/pricing-card.astro";
+import PricingNote from "../components/ui/pricing-note.astro";
+import AddonCard from "../components/ui/addon-card.astro";
+import FaqItem from "../components/ui/faq-item.astro";
+
+import {
+  packages,
+  notes,
+  addons,
+  faqs,
+  comparisonFeatures,
+  comparisonRows,
+} from "../content/prices";
+
+const email = import.meta.env.CONTACT_EMAIL || "rafamartz2007@gmail.com";
+const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "";
+const waMessage = encodeURIComponent(
+  "Hi, I saw RavexCode and I'm interested in learning more about your services. I have a business and I need [describe your need].",
+);
+
+const mailto = (subject: string) =>
+  `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+
+const cardDelays = [
+  "animate-delay-100",
+  "animate-delay-150",
+  "animate-delay-200",
+  "animate-delay-250",
+];
+
+const secondaryCtaClass =
+  "p-3 px-8 rounded-md bg-neutral-900 border border-neutral-700 text-zinc-50 hover:border-sky-600 hover:scale-105 duration-300";
+---
+
+<Layout
+  lang="en"
+  title="Pricing | Accessible web development and software — RavexCode"
+  description="Catalogs, online stores, websites and custom systems for businesses and entrepreneurs. Learn about RavexCode's starting prices."
+  canonical="https://ravexcode.com/pricing"
+>
+  <div class="w-full flex flex-col items-center justify-start">
+    {/* Hero */}
+    <section
+      class="w-full max-w-300 flex flex-col items-center justify-center text-center gap-4 p-5 sm:p-10 mt-10 sm:mt-16 mb-14 sm:mb-20 animate-fade-in-up animate-duration-300"
+    >
+      <h1
+        class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-wide animate-blurred-fade-in animate-duration-500"
+      >
+        Digital solutions at <span class="text-sky-600">accessible prices</span
+        >.
+      </h1>
+      <p
+        class="text-base sm:text-lg text-neutral-400 font-light max-w-150 animate-fade-in-up animate-delay-200 animate-duration-500"
+      >
+        Start with what your business needs today and add new features when
+        you're ready to grow.
+      </p>
+      <p
+        class="text-sm text-neutral-500 font-light animate-fade-in-up animate-delay-300 animate-duration-500"
+      >
+        Starting prices in MXN. The final price depends on the project scope.
+      </p>
+    </section>
+
+    {/* Pricing cards */}
+    <section
+      id="prices"
+      class="w-full max-w-300 flex flex-col gap-5 px-10 items-stretch"
+    >
+      {
+        packages.map((pkg, i) => (
+          <PricingCard
+            name={pkg.name}
+            description={pkg.description}
+            pricePrefix={pkg.pricePrefix}
+            price={pkg.price}
+            priceUnit={pkg.priceUnit}
+            priceAccent={pkg.priceAccent}
+            features={pkg.features}
+            footerNotes={pkg.footerNotes}
+            ctaLabel={pkg.ctaLabel}
+            ctaHref={mailto(pkg.ctaSubject)}
+            badge={pkg.badge}
+            highlight={pkg.highlight}
+            animateDelay={cardDelays[i] ?? ""}
+          />
+        ))
+      }
+    </section>
+
+    {/* Comparison table */}
+    <section
+      class="w-full max-w-300 px-5 sm:px-10 mt-14 sm:mt-20 animate-fade-in-up animate-delay-200 animate-duration-700"
+    >
+      <p class="text-2xl sm:text-3xl font-medium text-center mb-6">
+        Quick comparison
+      </p>
+
+      <div
+        class="overflow-x-auto rounded-sm border border-neutral-800 bg-neutral-900"
+      >
+        <table class="w-full min-w-200 text-sm">
+          <thead>
+            <tr
+              class="text-left text-xs uppercase tracking-wider text-neutral-500"
+            >
+              <th scope="col" class="p-3 font-medium">Package</th>
+              {
+                comparisonFeatures.map((feature) => (
+                  <th scope="col" class="p-3 text-center font-medium">
+                    {feature}
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody class="text-neutral-400 font-light">
+            {
+              comparisonRows.map((pkg) => (
+                <tr class="border-t border-neutral-800">
+                  <th
+                    scope="row"
+                    class={`p-3 font-normal ${pkg.highlight ? "text-sky-500 font-medium" : "text-zinc-50"}`}
+                  >
+                    {pkg.name}
+                  </th>
+                  {pkg.cells.map((cell) => (
+                    <td
+                      class={`p-3 text-center ${
+                        pkg.highlight ? "text-sky-500 font-medium" : ""
+                      } ${
+                        cell === "—" ? "text-neutral-600" : "text-neutral-300"
+                      }`}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {/* Pricing notes */}
+    <section
+      id="notas"
+      class="w-full max-w-300 grid grid-cols-1 md:grid-cols-2 gap-5 px-5 sm:px-10 mt-14 sm:mt-20 animate-fade-in-up animate-delay-200 animate-duration-700"
+    >
+      <p
+        class="text-2xl sm:text-3xl font-medium md:col-span-2 text-center mb-2"
+      >
+        Important notes
+      </p>
+
+      {notes.map((note) => <PricingNote title={note.title} text={note.text} />)}
+    </section>
+
+    {/* Add-ons */}
+    <section
+      id="extras"
+      class="w-full max-w-300 px-5 sm:px-10 mt-14 sm:mt-20 animate-fade-in-up animate-delay-200 animate-duration-700"
+    >
+      <p class="text-2xl sm:text-3xl font-medium text-center mb-2">
+        Add only what you need.
+      </p>
+      <p
+        class="text-sm text-neutral-400 font-light text-center max-w-150 mx-auto mb-8"
+      >
+        Don't pay for features your business doesn't use yet. Each extra is
+        quoted separately.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {
+          addons.map((addon) => (
+            <AddonCard
+              name={addon.name}
+              price={addon.price}
+              desc={addon.desc}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    {/* FAQ */}
+    <section
+      id="faq"
+      class="w-full max-w-150 px-5 sm:px-10 mt-14 sm:mt-20 animate-fade-in-up animate-delay-200 animate-duration-700"
+    >
+      <p class="text-2xl sm:text-3xl font-medium text-center mb-2">
+        Frequently asked questions
+      </p>
+      <p class="text-sm text-neutral-400 font-light text-center mb-8">
+        Direct answers to the most common questions from small businesses.
+      </p>
+
+      <div class="flex flex-col gap-3">
+        {
+          faqs.map((faq) => (
+            <FaqItem question={faq.question} answer={faq.answer} />
+          ))
+        }
+      </div>
+    </section>
+
+    {/* Final CTA */}
+    <section
+      class="w-full max-w-200 flex flex-col items-center justify-center gap-6 p-5 sm:p-10 my-16 sm:my-24 text-center animate-fade-in-up animate-delay-200 animate-duration-700"
+    >
+      <p class="text-3xl sm:text-4xl font-medium tracking-wide">
+        Don't know which package you need?
+      </p>
+      <p class="text-base sm:text-lg text-neutral-400 font-light max-w-150">
+        Tell me what your business does and what you need. I'll help you find
+        the simplest solution to get started.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href={mailto("Talk about my project")}
+          class="p-3 px-8 rounded-md bg-blue-700 text-zinc-50 font-medium hover:scale-105 hover:bg-blue-600 duration-300"
+        >
+          Talk about my project
+        </a>
+
+        {
+          whatsappUrl.length > 0 && (
+            <a
+              href={`${whatsappUrl}?text=${waMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={secondaryCtaClass}
+            >
+              Contact on WhatsApp
+            </a>
+          )
+        }
+      </div>
+
+      <p class="text-sm text-neutral-500 font-light">
+        You can also email me at <a
+          href={mailto("Hello")}
+          class="text-sky-600 hover:underline">{email}</a
+        >
+      </p>
+    </section>
+  </div>
+</Layout>
