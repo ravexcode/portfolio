@@ -1,6 +1,6 @@
 ---
 const {
-  title = "RavexCode | Full-Stack Developer",
+  title = "RavexCode | Typescript Developer",
   description = "RavexCode builds modern full-stack web applications, APIs, and scalable digital products.",
   canonical,
   image = "/large.svg",
@@ -8,19 +8,19 @@ const {
 } = Astro.props;
 
 const siteUrl = "https://ravexcode.com";
-const resolvedCanonical = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const resolvedCanonical =
+  canonical || new URL(Astro.url.pathname, siteUrl).toString();
 const resolvedImage = new URL(image, siteUrl).toString();
-const resolvedTitle = title.includes("RavexCode") ? title : `${title} | RavexCode`;
+const resolvedTitle = title.includes("RavexCode")
+  ? title
+  : `${title} | RavexCode`;
 const schema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "RavexCode",
   url: siteUrl,
-  jobTitle: "Full-Stack Developer",
-  sameAs: [
-    "https://github.com/ravexcode",
-    "https://www.linkedin.com/",
-  ],
+  jobTitle: "Typescript Developer",
+  sameAs: ["https://github.com/ravexcode", "https://www.linkedin.com/"],
   description,
 };
 ---

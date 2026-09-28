@@ -24,6 +24,10 @@ export const skills = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/3840px-Git_icon.svg.png"
   },
   {
+    name: "Docker",
+    img: "https://www.docker.com/app/uploads/2024/02/cropped-docker-logo-favicon-192x192.png"
+  },
+  {
     name: "React",
     img: "https://react.dev/images/brand/logo_dark.svg",
     isFramework: true
@@ -66,6 +70,31 @@ export const skills = [
   {
     name: "Supabase",
     img: "https://supabase.com/favicon/favicon-196x196.png",
+    isApplication: true
+  },
+  {
+    name: "VSCode",
+    img: "https://code.visualstudio.com/favicon.ico",
+    isApplication: true
+  },
+  {
+    name: "Zed",
+    img: "https://zed.dev/favicon_white_64.png",
+    isApplication: true
+  },
+  {
+    name: "OpenCode",
+    img: "https://opencode.ai/favicon.ico",
+    isApplication: true
+  },
+  {
+    name: "Codex",
+    img: "https://chatgpt.com/favicon.ico",
+    isApplication: true
+  },
+  {
+    name: "Claude Code",
+    img: "/icons/claude.ico",
     isApplication: true
   },
 ]

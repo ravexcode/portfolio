@@ -1,13 +1,13 @@
 ---
-import Tag from './tag.astro';
+import Tag from "./tag.astro";
 
 interface Props {
   name: string;
   logo_url: string;
   description: string;
-  langs: string [];
-  frameworks?: string [];
-  apps?: string [];
+  langs: string[];
+  frameworks?: string[];
+  apps?: string[];
   repo?: string;
   deploy?: string;
 }
@@ -20,71 +20,55 @@ const {
   frameworks = [],
   apps = [],
   repo = "",
-  deploy = ""
-} = Astro.props
+  deploy = "",
+} = Astro.props;
 ---
 
-<section
-class="w-full max-w-400 rounded-sm bg-neutral-900 flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-start text-neutral-300 hover:text-zinc-50 duration-300 p-5 sm:p-10 border border-neutral-800 hover:border-neutral-600 animate-fade-in-up animate-delay-200 animate-duration-400">
+<section class="w-full max-w-400 rounded-sm bg-card flex flex-col sm:flex-row gap-5 items-start sm:items-center justify-start text-neutral-300 hover:text-zinc-50 duration-300 p-5 sm:p-10 border border-card-border hover:border-neutral-900 animate-fade-in-up animate-delay-200 animate-duration-400">
   <img
-  src={logo_url}
-  alt={name + " logo"}
-  class={"rounded-full aspect-square w-16 sm:w-30 block " + (name === "Credifox" && "rounded-none p-2 sm:p-5")}>
+    src={logo_url}
+    alt={name + " logo"}
+    class={
+      "rounded-full aspect-square w-16 sm:w-30 block " +
+      (name === "Credifox" && "rounded-none p-2 sm:p-5")
+    }
+  />
 
-  <div
-  class="flex flex-col gap-1.5 w-full sm:w-auto">
-    <p
-    class="text-xl font-medium tracking-wide">
-      {name}
-    </p>
+  <div class="flex flex-col gap-1.5 w-full sm:w-auto">
+    <p class="text-xl font-medium tracking-wide">{name}</p>
 
-    <p>
-      {description}
-    </p>
+    <p>{description}</p>
 
-    <div
-    class="flex flex-wrap gap-3 text-xs">
-      {
-        langs.map(lang =>
-          <Tag
-          content={lang}
-          variant="lang" />
-        )
-      }
-      {
-        frameworks && frameworks.map(lang =>
-          <Tag
-          content={lang}
-          variant="framework" />
-        )
-      }
-      {
-        apps && apps.map(lang =>
-          <Tag
-          content={lang}
-          variant="app" />
-        )
-      }
+    <div class="flex flex-wrap gap-3 text-xs">
+      {langs.map((lang) => (
+        <Tag content={lang} variant="lang" />
+      ))}
+      {frameworks &&
+        frameworks.map((lang) => <Tag content={lang} variant="framework" />)}
+      {apps && apps.map((lang) => <Tag content={lang} variant="app" />)}
     </div>
 
-    <div
-    class="w-full flex flex-wrap items-center justify-start gap-3 sm:gap-5 mt-2 text-xs">
+    <div class="w-full flex flex-wrap items-center justify-start gap-3 sm:gap-5 mt-2 text-xs">
       <a
-      href={repo}
-      class="p-2 px-5 rounded-md bg-black flex items-center justify-center gap-2 text-zinc-50 hover:scale-105 duration-300 h-full">
-        <img src="https://github.com/favicon.ico" alt="Github logo"
-        class="invert aspect-square rounded-full block w-4">
+        href={repo}
+        class="p-2 px-5 rounded-md bg-black flex items-center justify-center gap-2 text-zinc-50 hover:scale-105 duration-300 h-full"
+      >
+        <img
+          src="https://github.com/favicon.ico"
+          alt="Github logo"
+          class="invert aspect-square rounded-full block w-4"
+        />
         View on Github
       </a>
 
-      {
-        deploy.length > 0 &&
+      {deploy.length > 0 && (
         <a
-        href={deploy}
-        class="p-1.5 px-5 rounded-md bg-blue-700 text-zinc-50 hover:scale-105 duration-300">
+          href={deploy}
+          class="p-1.5 px-5 rounded-md bg-blue-700 text-zinc-50 hover:scale-105 duration-300"
+        >
           Go to {name}
         </a>
-      }
+      )}
     </div>
   </div>
 </section>

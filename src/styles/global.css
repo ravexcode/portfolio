@@ -6,3 +6,10 @@
 .font-opensans {
   font-family: "Open Sans", sans-serif;
 }
+
+@theme {
+  --color-background: #010101;
+  --color-card: #050505;
+  --color-card-border: #0A0A0A;
+  --color-foreground: #FAFAFA;
+}
