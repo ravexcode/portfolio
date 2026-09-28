@@ -26,90 +26,50 @@ const { title, description, canonical, image, type, lang = "en" } = Astro.props;
       type={type}
     />
   </head>
-  <body
-    class="bg-neutral-950 text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans"
-  >
-    <header
-      class="w-full flex items-center justify-between p-5 border-b border-neutral-800 animate-fade-in-down"
-    >
+  <body class="bg-neutral-950 text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans">
+    <header class="w-full flex items-center justify-between p-5 border-b border-neutral-800 animate-fade-in-down">
       <img src="/large.svg" alt="RavexCode presentation" class="h-6" />
 
       <nav class="hidden md:flex items-center justify-center gap-7 text-sm">
-        <a href="/#about" class={link_class}> About </a>
-        <a href="/#projects" class={link_class}> Projects </a>
-        <a href="/#skills" class={link_class}> Skills </a>
-        <a href="/#hire" class={link_class}> Hire me </a>
-        <a
-          href="/pricing"
-          class="px-5 rounded-md py-1.5 text-center bg-blue-700 hover:bg-blue-800 duration-200 cursor-pointer"
-        >
-          Pricing
+        <a href="/#about" class={link_class}>
+          {" "}
+          About{" "}
+        </a>
+        <a href="/#projects" class={link_class}>
+          {" "}
+          Projects{" "}
+        </a>
+        <a href="/#skills" class={link_class}>
+          {" "}
+          Skills{" "}
         </a>
       </nav>
-
-      <button
-        id="menu-btn"
-        type="button"
-        class="md:hidden flex flex-col gap-1.5 p-2"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-      >
-        <span class="block w-6 h-0.5 bg-zinc-50"></span>
-        <span class="block w-6 h-0.5 bg-zinc-50"></span>
-        <span class="block w-6 h-0.5 bg-zinc-50"></span>
-      </button>
     </header>
 
     <nav
       id="mobile-menu"
       class="hidden md:hidden flex-col items-stretch gap-1 px-5 pb-5 text-sm bg-neutral-950"
     >
-      <a href="/#about" class={item_class}>About</a>
-      <a href="/#projects" class={item_class}>Projects</a>
-      <a href="/#skills" class={item_class}>Skills</a>
-      <a href="/#hire" class={item_class}>Hire me</a>
-      <a href="/pricing" class={item_class}>Pricing</a>
+      <a href="/#about" class={item_class}>
+        About
+      </a>
+      <a href="/#projects" class={item_class}>
+        Projects
+      </a>
+      <a href="/#skills" class={item_class}>
+        Skills
+      </a>
+      <a href="/#hire" class={item_class}>
+        Hire me
+      </a>
+      <a href="/pricing" class={item_class}>
+        Pricing
+      </a>
     </nav>
 
-    <slot />
-
-    <footer
-      class="mt-10 bg-black p-5 sm:p-10 flex flex-col items-start justify-between md:flex-row cursor-default select-none text-sm gap-6"
-    >
-      <img src="/large.svg" alt="Ravexcode large logo" class="h-7" />
-
-      <div class="flex gap-6 items-start justify-center">
-        <div class="flex flex-col items-center justify-center tracking-wide">
-          <p class={header_class}>Social media</p>
-
-          <a href="https://x.com/rafamartz2007" class={item_class}>
-            X (Twitter)</a
-          >
-          <a
-            href="https://www.linkedin.com/in/jose-mart%C3%ADnez-b6883b407/"
-            class={item_class}
-          >
-            Linked in
-          </a>
-          <a href="https://github.com/ravexcode" class={item_class}> Github</a>
-        </div>
-
-        <div class="flex flex-col items-center justify-center tracking-wide">
-          <p class={header_class}>Deployed projects</p>
-
-          <a href="https://credifox-store.vercel.app/" class={item_class}>
-            Credifox
-          </a>
-          <a href="https://nex0.ravexcode.com/" class={item_class}> Nex0 </a>
-        </div>
-
-        <div class="flex flex-col items-center justify-center tracking-wide">
-          <p class={header_class}>Site</p>
-
-          <a href="/pricing" class={item_class}> Pricing</a>
-        </div>
-      </div>
-    </footer>
+    <div class="w-full max-w-300 mx-auto">
+      <slot />
+    </div>
   </body>
 </html>
 
