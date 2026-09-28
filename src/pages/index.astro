@@ -23,15 +23,15 @@ const apps = skills.filter((skill) => {
 ---
 
 <Layout
-  title="RavexCode | Typescript Developer"
-  description="RavexCode is a Typescript developer building web apps, APIs and AI-powered features from real projects."
+  title="RavexCode | Typescript Junior Developer"
+  description="RavexCode is a Typescript Junior developer building web apps, APIs and AI-powered features from real projects."
   canonical="https://ravexcode.com/"
 >
   <div class="w-full flex flex-col items-center justify-start">
     <section class="w-full flex flex-col p-5 sm:p-10 mt-8 sm:mt-10 mb-16 sm:mb-20 animate-fade-in-up animate-duration-300">
       <p class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-wide animate-blurred-fade-in select-none animate-duration-700">
         Hi, i'm <span class="text-sky-600">RavexCode</span> <br />a{" "}
-        <span class="text-sky-600"> Typescript developer </span>
+        <span class="text-sky-600"> Typescript Junior developer </span>
       </p>
     </section>
 
@@ -41,21 +41,13 @@ const apps = skills.filter((skill) => {
     >
       About me
     </p>
-
-    <section class="flex flex-col lg:flex-row gap-6 justify-center items-stretch mt-10 mb-16 sm:mb-30 px-5">
-      <Card
-        title="Knowledge"
-        content="I'm a junior developer, so my stack comes from real work: every skill I list comes from a project I've actually built. That keeps me honest about what I truly master, and open about what I still need to learn."
-      />
-      <Card
-        title="Focus"
-        content="Full-stack with an AI edge: REST APIs, databases and backend logic, plus AI-powered features such as intelligent workflows and assistants. I also handle frontend, from pure HTML to React and SSR."
-      />
-      <Card
-        title="Teamwork"
-        content="My English is B2, so I can communicate clearly in international teams. I work well alone, but I work best in a team, following the instructions and guidance within each sprint."
-      />
-    </section>
+    <p class="tracking-wide animate-fade-in-up animate-delay-200 animate-duration-700 mt-5 mb-20 text-neutral-300 px-10">
+      I'm a TypeScript developer who enjoys building practical web applications
+      that solve real problems. I work with tools like Next.js, React, and
+      PostgreSQL to create everything from workflow platforms and online
+      catalogs to AI-powered products. I’m always learning, refining my craft,
+      and looking for thoughtful ways to make software useful and easy to use.
+    </p>
 
     <p
       class="text-3xl sm:text-4xl lg:text-5xl font-medium animate-fade-in-up animate-delay-200 animate-duration-700"
@@ -86,45 +78,45 @@ const apps = skills.filter((skill) => {
       Skills
     </p>
 
-    <div class="flex flex-col gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto mt-10">
+    <div class="flex flex-col gap-10 px-5 sm:px-10 justify-center items-start mx-auto mt-10">
       <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center">
         Languages
       </p>
 
-      <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto">
+      <div class="flex flex-wrap gap-5 px-5 sm:px-10 justify-center items-start mx-auto">
         {langs.map((lang) => (
-          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700">
-            <img src={lang.img} alt={lang.name} class="w-8 h-8" />
+          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700 w-25">
+            <img src={lang.img} alt={lang.name} class="w-12 h-12" />
 
-            <p class="text-lg font-medium">{lang.name}</p>
+            <p>{lang.name}</p>
           </div>
         ))}
       </div>
 
-      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center">
+      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center mt-10">
         Frameworks
       </p>
 
-      <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto">
+      <div class="flex flex-wrap gap-5 px-5 sm:px-10 justify-center items-start mx-auto">
         {frameworks.map((framework) => (
-          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700">
-            <img src={framework.img} alt={framework.name} class="w-8 h-8" />
+          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700 w-25">
+            <img src={framework.img} alt={framework.name} class="w-12 h-12" />
 
-            <p class="text-lg font-medium">{framework.name}</p>
+            <p>{framework.name}</p>
           </div>
         ))}
       </div>
 
-      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center">
+      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center mt-10">
         Applications
       </p>
 
-      <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto">
+      <div class="flex flex-wrap gap-5 px-5 sm:px-10 justify-center items-start mx-auto">
         {apps.map((app) => (
-          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700">
-            <img src={app.img} alt={app.name} class="w-8 h-8" />
+          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700 w-25">
+            <img src={app.img} alt={app.name} class="w-12 h-12" />
 
-            <p class="text-lg font-medium">{app.name}</p>
+            <p>{app.name}</p>
           </div>
         ))}
       </div>
