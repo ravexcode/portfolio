@@ -5,16 +5,31 @@ import Project from "../components/ui/project.astro";
 
 import { projects } from "../content/projects";
 import { skills } from "../content/skills";
+
+const langs = skills.filter((skill) => {
+  if (skill.isFramework || skill.isApplication) return false;
+  return skill;
+});
+
+const frameworks = skills.filter((skill) => {
+  if (skill.isFramework) return skill;
+  return false;
+});
+
+const apps = skills.filter((skill) => {
+  if (skill.isApplication) return skill;
+  return false;
+});
 ---
 
 <Layout
-  title="RavexCode | Junior Full-Stack & AI Engineer"
-  description="RavexCode is a junior full-stack and AI engineer building web apps, APIs and AI-powered features from real projects."
+  title="RavexCode | Typescript Developer"
+  description="RavexCode is a Typescript developer building web apps, APIs and AI-powered features from real projects."
   canonical="https://ravexcode.com/"
 >
   <div class="w-full flex flex-col items-center justify-start">
     <section class="w-full flex flex-col p-5 sm:p-10 mt-8 sm:mt-10 mb-16 sm:mb-20 animate-fade-in-up animate-duration-300">
-      <p class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-wide animate-blurred-fade-in select-none animate-duration-500">
+      <p class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-wide animate-blurred-fade-in select-none animate-duration-700">
         Hi, i'm <span class="text-sky-600">RavexCode</span> <br />a{" "}
         <span class="text-sky-600"> Typescript developer </span>
       </p>
@@ -71,30 +86,48 @@ import { skills } from "../content/skills";
       Skills
     </p>
 
-    <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto my-10 sm:my-20">
-      {skills.map((skill) => (
-        <div class="w-20 sm:w-25 h-24 sm:h-30 flex flex-col items-center justify-start gap-2 font-medium">
-          <img
-            src={skill.img}
-            alt="App logo"
-            class="w-8 sm:w-10 aspect-square block"
-          />
+    <div class="flex flex-col gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto mt-10">
+      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center">
+        Languages
+      </p>
 
-          {skill.name}
+      <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto">
+        {langs.map((lang) => (
+          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700">
+            <img src={lang.img} alt={lang.name} class="w-8 h-8" />
 
-          {skill.isApplication ? (
-            <span class="bg-violet-900 border border-violet-600 rounded-full text-center p-1 text-xs w-15">
-              App
-            </span>
-          ) : (
-            skill.isFramework && (
-              <span class="bg-blue-900 border border-blue-600 rounded-full text-center p-1 text-xs w-20 sm:w-25">
-                Framework
-              </span>
-            )
-          )}
-        </div>
-      ))}
+            <p class="text-lg font-medium">{lang.name}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center">
+        Frameworks
+      </p>
+
+      <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto">
+        {frameworks.map((framework) => (
+          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700">
+            <img src={framework.img} alt={framework.name} class="w-8 h-8" />
+
+            <p class="text-lg font-medium">{framework.name}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-xl font-medium tracking-wides animate-fade-in-up animate-delay-200 animate-duration-700 w-full text-center">
+        Applications
+      </p>
+
+      <div class="flex flex-wrap gap-5 sm:gap-10 px-5 sm:px-10 justify-center items-start mx-auto">
+        {apps.map((app) => (
+          <div class="flex flex-col justify-center items-center gap-2 animate-fade-in-up animate-delay-200 animate-duration-700">
+            <img src={app.img} alt={app.name} class="w-8 h-8" />
+
+            <p class="text-lg font-medium">{app.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </Layout>
