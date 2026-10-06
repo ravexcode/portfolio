@@ -63,13 +63,23 @@ export const skills = [
     isApplication: true
   },
   {
+    name: "Supabase",
+    img: "https://supabase.com/favicon/favicon-196x196.png",
+    isApplication: true
+  },
+  {
+    name: "Prisma",
+    img: "https://www.prisma.io/favicon.ico",
+    isApplication: true
+  },
+  {
     name: "Vercel",
     img: "https://cdn.brandfetch.io/vercel.com/fallback/lettermark/theme/dark/h/256/w/256/icon?c=1bfwsmEH20zzEfSNTed",
     isApplication: true
   },
   {
-    name: "Supabase",
-    img: "https://supabase.com/favicon/favicon-196x196.png",
+    name: "Netlify",
+    img: "https://www.netlify.com/favicon/favicon.ico",
     isApplication: true
   },
   {
