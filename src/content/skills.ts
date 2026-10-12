@@ -64,7 +64,7 @@ export const skills = [
   },
   {
     name: "Supabase",
-    img: "https://supabase.com/favicon/favicon-196x196.png",
+    img: "https://supabase.com/favicon/favicon.ico",
     isApplication: true
   },
   {

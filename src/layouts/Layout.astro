@@ -26,7 +26,7 @@ const { title, description, canonical, image, type, lang = "en" } = Astro.props;
       type={type}
     />
   </head>
-  <body class="bg-background text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans mb-30">
+  <body class="bg-background text-zinc-50 grid grid-rows-[auto_1fr_auto] min-h-screen font-opensans">
     <header class="w-full flex items-center justify-between p-5 border-b border-neutral-800 animate-fade-in-down">
       <img src="/large.svg" alt="RavexCode presentation" class="h-6" />
 
@@ -70,6 +70,16 @@ const { title, description, canonical, image, type, lang = "en" } = Astro.props;
     <div class="w-full max-w-300 mx-auto">
       <slot />
     </div>
+
+    <footer class="py-5 px-10 mt-10 flex items-center justify-start gap-2">
+      <img
+        src="https://astro.build/favicon.svg"
+        alt="Astro logo"
+        class="aspect-square block w-6"
+      />
+
+      <p class="text-xs">Build with Astro</p>
+    </footer>
   </body>
 </html>
 
